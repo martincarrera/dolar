@@ -1,0 +1,32 @@
+{
+  "name": "dolar",
+  "version": "0.0.1",
+  "description": "Get the current ARS equivalency for one USD dollar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/martincarrera/dolar.git"
+  },
+  "keywords": [
+    "dolar",
+    "peso",
+    "argentina",
+    "macrisis",
+    "inflacion",
+    "cotizacion",
+    "ARS",
+    "USD"
+  ],
+  "author": "Martin Carrera",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/martincarrera/dolar/issues"
+  },
+  "homepage": "https://github.com/martincarrera/dolar#readme",
+  "dependencies": {
+    "trae": "^1.4.2"
+  }
+}
