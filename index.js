@@ -13,4 +13,8 @@ const main = (arg) => {
     .catch(console.error)
 }
 
-main(process.argv[2])
+module.exports = main
+
+if (!module.parent) {
+  main(process.argv[2])
+}
