@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const trae = require('trae')
 const { getData, getRate, print } = require('./utils')
 
