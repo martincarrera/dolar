@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "dolar": "index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/martincarrera/dolar.git"
