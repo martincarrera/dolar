@@ -14,12 +14,6 @@ Get the current conversion USD-ARS rate.
 > dolar
 ```
 
-Or if you prefer Macri to tell you the current rate:
-
-```
-> dolar macri
-```
-
 ## Try without installing
 
 ```
@@ -28,4 +22,4 @@ Or if you prefer Macri to tell you the current rate:
 
 ### Acknowledgements
 
-This extremely util package is using [currencyconverterapi](https://free.currencyconverterapi.com).
+This extremely usefull package is using [bluelytics api](https://api.bluelytics.com.ar/v2/latest).

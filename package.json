@@ -22,7 +22,10 @@
     "inflacion",
     "cotizacion",
     "ARS",
-    "USD"
+    "USD",
+    "blue",
+    "cepo",
+    "paralelo"
   ],
   "author": "Martin Carrera",
   "license": "MIT",
@@ -31,6 +34,6 @@
   },
   "homepage": "https://github.com/martincarrera/dolar#readme",
   "dependencies": {
-    "trae": "^1.4.2"
+    "trae": "1.4.2"
   }
 }

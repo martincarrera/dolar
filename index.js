@@ -1,21 +1,26 @@
 #!/usr/bin/env node
+
+// @ts-ignore
 const trae = require('trae')
-const { getData, getRate, print } = require('./utils')
 
-const URL =
-  'https://free.currencyconverterapi.com/api/v5/convert?q=USD_ARS&compact=ultra'
+const { print } = require('./utils')
 
-const main = (arg) => {
+const URL = 'https://api.bluelytics.com.ar/v2/latest'
+
+const main = () => {
   trae
+    // @ts-ignore
     .get(URL)
-    .then(getData)
-    .then(getRate)
-    .then((value) => print(value, arg))
+    .then(({ data }) => {
+      const { oficial, blue } = data
+      print(oficial, blue)
+    })
     .catch(console.error)
 }
 
 module.exports = main
 
+// @ts-ignore
 if (!module.parent) {
-  main(process.argv[2])
+  main()
 }
