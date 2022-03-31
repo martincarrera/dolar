@@ -3,6 +3,7 @@ const TYPES = {
   blue: 'BLUE',
 }
 
+
 const convert = (val) => val.toFixed(2)
 
 const calculateOffset = (a, b) => ({
@@ -25,6 +26,9 @@ const printTable = (
   console.log(
     `| Sell:\t   ${offset.sell ? ' ' : ''}$ ${convert(val.value_sell)} |`,
   )
+  if (type == 'REAL') {
+    console.log(`| Tj:\t   ${offset.avg ? ' ' : ''}$ ${convert(parseFloat(val.value_sell) * 1.65)} |`)
+  }
   console.log(`| ----------------- |`)
   console.log(
     `| Avg:\t   ${offset.avg ? ' ' : ''}$ ${convert(val.value_avg)} |`,
@@ -32,10 +36,44 @@ const printTable = (
   console.log(`|___________________|`)
 }
 
-const print = (oficial, blue) => {
+const printConversion = (
+  val,
+  type,
+  amount,
+  operation
+) => {
+
+  if(operation == '--to-usd') {
+    val.value_buy = val.value_buy / amount;
+    val.value_sell = val.value_sell / amount;
+    val.value_avg = val.value_avg / amount;
+  } else {
+    val.value_buy = val.value_buy * amount;
+    val.value_sell = val.value_sell * amount;
+    val.value_avg = val.value_avg * amount;
+  }
+
+  console.log(`${type} Buy:\t   $ ${convert(val.value_buy)}`)
+  console.log(`${type} Sell:\t   $ ${convert(val.value_sell)}`)
+  if (type == 'REAL') {
+    console.log(`${type} Tj:\t   $ ${convert(parseFloat(val.value_sell) * 1.65)}`)
+  }
+}
+
+const print = (oficial, blue, amount = 0, operation = '--to-ars') => {
   printTable(oficial, TYPES.real, calculateOffset(oficial, blue))
   console.log()
   printTable(blue, TYPES.blue, calculateOffset(blue, oficial))
+  if (amount > 0) {
+    console.log()
+    console.log(`Convert ${amount}  ${operation}`)
+    console.log(`-----------------------------`)
+    printConversion(oficial, TYPES.real, amount, operation)
+    console.log()
+    printConversion(blue, TYPES.blue, amount, operation)
+    console.log(`-----------------------------`)
+
+  }
 }
 
 module.exports = { print }

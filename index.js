@@ -3,6 +3,8 @@
 // @ts-ignore
 const trae = require('trae')
 
+const args = process.argv.slice(2);
+
 const { print } = require('./utils')
 
 const URL = 'https://api.bluelytics.com.ar/v2/latest'
@@ -13,7 +15,7 @@ const main = () => {
     .get(URL)
     .then(({ data }) => {
       const { oficial, blue } = data
-      print(oficial, blue)
+      print(oficial, blue, args[0], args[1])
     })
     .catch(console.error)
 }
