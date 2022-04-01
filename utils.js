@@ -44,9 +44,9 @@ const printConversion = (
 ) => {
 
   if(operation == '--to-usd') {
-    val.value_buy = val.value_buy / amount;
-    val.value_sell = val.value_sell / amount;
-    val.value_avg = val.value_avg / amount;
+    val.value_buy = amount / val.value_buy;
+    val.value_sell = amount / val.value_sell;
+    val.value_avg = amount / val.value_avg;
   } else {
     val.value_buy = val.value_buy * amount;
     val.value_sell = val.value_sell * amount;
