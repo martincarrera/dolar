@@ -3,7 +3,7 @@ const TYPES = {
   blue: 'BLUE',
 }
 
-// CC convertion rate:
+// CC conversion rate: Oficial + 30% (Impuesto PAIS) + 45% (Impuesto Ganancias)
 const ccRate = 1.75;
 
 
