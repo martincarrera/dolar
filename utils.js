@@ -3,8 +3,8 @@ const TYPES = {
   blue: 'BLUE',
 }
 
-// CC conversion rate: Oficial + 30% (Impuesto PAIS) + 45% (Impuesto Ganancias)
-const ccRate = 1.75;
+// CC conversion rate: Oficial + 30% (Impuesto PAIS) + 30% (Impuesto Ganancias)
+const ccRate = 1.6;
 
 
 const convert = (val) => val.toFixed(2)
@@ -24,14 +24,15 @@ const printTable = (
   console.log(`| ${type}\t\t    |`)
   console.log(`| ----------------- |`)
   console.log(
-    `| Buy:\t   ${offset.buy ? ' ' : ''}$ ${convert(val.value_buy)} |`,
+    `| Buy:\t  ${offset.buy ? ' ' : ''}$ ${convert(val.value_buy)} |`,
   )
   console.log(
-    `| Sell:\t   ${offset.sell ? ' ' : ''}$ ${convert(val.value_sell)} |`,
+    `| Sell:\t  ${offset.sell ? ' ' : ''}$ ${convert(val.value_sell)} |`,
   )
   console.log(`| ----------------- |`)
   console.log(
-    `| Avg:\t   ${offset.avg ? ' ' : ''}$ ${convert(val.value_avg)} |`,
+
+    `| Avg:\t ${offset.avg ? ' ' : ''} $ ${convert(val.value_avg)} |`,
   )
   console.log(`|___________________|`)
   if (type == 'REAL') {
@@ -39,7 +40,7 @@ const printTable = (
     console.log(`|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|`)
     console.log(`| TARJETA\t    |`)
     console.log(`| ----------------- |`)
-    console.log(`|      \t   ${offset.avg ? ' ' : ''}$ ${convert(parseFloat(val.value_sell) * ccRate)} |`)
+    console.log(`|      \t${offset.avg ? '  ' : ''}$ ${convert(parseFloat(val.value_avg) * ccRate)} |`)
     console.log(`|___________________|`)
   }
 }
@@ -65,7 +66,7 @@ const printConversion = (
   console.log(`${type} Sell:\t   $ ${convert(val.value_sell)}`)
   if (type == 'REAL') {
     console.log()
-    console.log(`TARJETA:\t   $ ${convert(parseFloat(val.value_sell) * ccRate)}`)
+    console.log(`TARJETA:\t $ ${convert(parseFloat(val.value_sell) * ccRate)}`)
   }
 }
 

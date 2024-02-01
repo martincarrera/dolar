@@ -3,7 +3,7 @@
 // @ts-ignore
 const trae = require('trae')
 
-const args = process.argv.slice(2);
+const args = process.argv.slice(2)
 
 const { print } = require('./utils')
 
